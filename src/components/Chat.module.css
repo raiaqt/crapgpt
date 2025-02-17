@@ -261,4 +261,45 @@
   40% {
     opacity: 1;
   }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .chatContainer {
+    background-color: #1e1e1e;
+  }
+  .chatMessages {
+    background: #1e1e1e;
+  }
+  .chatBubble {
+    background-color: #333333;
+    color: #f5f5f5;
+  }
+  .assistant .chatBubble {
+    background-color: transparent; /* Keeps assistant bubbles transparent; text color is set below */
+    color: #f5f5f5;
+  }
+  .chatInputArea {
+    background-color: #1e1e1e;
+  }
+  .chatInputField {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #444444;
+  }
+  .chatInputField:focus {
+    border-color: #555555;
+    box-shadow: 0 3px 8px rgba(255, 255, 255, 0.05);
+  }
+  .chatInputField::placeholder {
+    color: #cccccc;
+    opacity: 0.8;
+  }
+  .disclaimer {
+    color: #bbbbbb;
+  }
+  .initialPrompt {
+    /* Use a lighter color for the initial text so it stands out on a dark background */
+    color: #e0e0e0;
+  }
 } 

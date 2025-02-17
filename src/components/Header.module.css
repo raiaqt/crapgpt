@@ -1,6 +1,6 @@
 .header {
   padding: 1rem 2rem; /* Increased horizontal padding for margin on the sides */
-  background-color: #fff; /* Optional white background */
+  background-color: #fff; /* Default white background for light mode */
   position: fixed;
   top: 0;
   left: 0;
@@ -11,6 +11,16 @@
 .header h1 {
   margin: 0;
   font-size: 1.2rem; /* Smaller text */
-  color: #5d5d5d;
+  color: #5d5d5d; /* Default dark text for light mode */
   text-align: left;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-color: #1d1d1d; /* Dark background for dark mode */
+  }
+
+  .header h1 {
+    color: #e0e0e0; /* Light text for dark mode */
+  }
 } 
