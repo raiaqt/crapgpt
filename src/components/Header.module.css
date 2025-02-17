@@ -1,0 +1,16 @@
+.header {
+  padding: 1rem 2rem; /* Increased horizontal padding for margin on the sides */
+  background-color: #fff; /* Optional white background */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures the header is on top of other content */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.2rem; /* Smaller text */
+  color: #5d5d5d;
+  text-align: left;
+} 
