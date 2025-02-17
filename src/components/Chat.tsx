@@ -111,7 +111,7 @@ const Chat: FC = () => {
             className={styles.chatInputButton}
             disabled={isLoading}
           >
-            {isLoading ? <div className={styles.loadingIcon} /> : <>&#8593;</>}
+            {isLoading ? <div className={styles.loadingIcon} /> : <>&#9650;</>}
           </button>
         </div>
         <div className={styles.disclaimer}>
