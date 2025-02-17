@@ -126,7 +126,7 @@
 @media (max-width: 768px) {
   .chatContainer {
     width: 100%;
-    height: calc(100vh - 60px); /* Subtract header height from full viewport height */
+    height: calc(var(--vh, 1vh) * 100 - 60px); /* Dynamic viewport height minus header height */
     margin-top: 60px; /* Ensure content starts below the fixed header */
     border-radius: 0;
   }
