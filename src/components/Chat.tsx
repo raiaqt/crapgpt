@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, FC, FormEvent, ChangeEvent, KeyboardEvent } from 'react';
+import { useState, useRef, useEffect, FC, FormEvent, ChangeEvent, KeyboardEvent } from 'react';
 import styles from './Chat.module.css';
 import { processChat } from '../../server/openaiLogic';
 
