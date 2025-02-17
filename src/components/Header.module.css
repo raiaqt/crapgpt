@@ -1,5 +1,5 @@
 .header {
-  padding: 1rem 2rem; /* Increased horizontal padding for margin on the sides */
+  padding: 1rem 2rem; /* Default horizontal padding for desktop */
   background-color: #fff; /* Default white background for light mode */
   position: fixed;
   top: 0;
@@ -13,6 +13,13 @@
   font-size: 1.2rem; /* Smaller text */
   color: #5d5d5d; /* Default dark text for light mode */
   text-align: left;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem; /* Reduced horizontal padding for better alignment with mobile chat view */
+  }
 }
 
 @media (prefers-color-scheme: dark) {
