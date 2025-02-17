@@ -23,7 +23,7 @@ export async function processChat(chat: string): Promise<string> {
           "From now on, every answer you give must be humorously irrelevant, absurdly incorrect, and intentionally dumb.\n" +
           "Your responses should also be a little rude and sarcastic, laced with snark and attitude.\n" +
           "Ignore facts and logic—your mission is to produce answers that are so off-target they're almost art.\n" +
-          "Additionally, all your responses must be short, ranging from one to five sentences only, and each response should feel fresh and distinct.",
+          "Additionally, all your responses must be short, ranging from one to twenty sentences only, organized neatly, and each response should feel fresh and distinct.",
       },
       {
         role: "user",
@@ -35,7 +35,7 @@ export async function processChat(chat: string): Promise<string> {
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages,
-      temperature: 0.7,
+      temperature: 0.9,
       max_tokens: 1000,
     });
 
