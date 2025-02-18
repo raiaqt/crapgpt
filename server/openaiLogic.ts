@@ -5,6 +5,13 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
+// Add a local type since ChatCompletionMessageParam is not exported.
+type ChatCompletionMessageParam = {
+  role: "system" | "user" | "assistant";
+  content: string;
+  name?: string;
+};
+
 // Define the Markdown instruction prompt in a variable to reuse it.
 const MARKDOWN_PROMPT = "\n\n**Please format your answer in Markdown wherever appropriate.**";
 
@@ -30,15 +37,10 @@ export async function processChat(
   // Retrieve the appropriate system prompt from our constants.
   const systemMessage = SYSTEM_PROMPTS[mode];
 
-  const messages = [
-    {
-      role: "system",
-      content: systemMessage,
-    },
-    {
-      role: "user",
-      content: chat,
-    },
+  // Explicitly type the messages.
+  const messages: ChatCompletionMessageParam[] = [
+    { role: "system", content: systemMessage },
+    { role: "user", content: chat }
   ];
 
   try {
