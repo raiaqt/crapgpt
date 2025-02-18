@@ -108,18 +108,20 @@
   transform: translateY(-50%);
   border: none;
   border-radius: 50%;
-  background-color: #000;
-  color: #fff;
-  font-size: 1rem;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.2rem;
+  height: 2.2rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  box-sizing: border-box;
+  align-items: center;
+  background-color: #1a1a1a; /* Light mode: dark button and circle */
+  color: #f9f9f9;          /* Light mode: light triangle icon */
+}
+
+@media (prefers-color-scheme: dark) {
+  .chatInputButton {
+    background-color: #f9f9f9; /* Dark mode: light button and circle */
+    color: #1a1a1a;           /* Dark mode: dark triangle icon */
+  }
 }
 
 /* Mobile adjustments: full-screen chat UI */
@@ -172,10 +174,8 @@
   }
 
   .chatInputButton {
-    font-size: 1rem;
-    width: 2.2rem;
-    height: 2.2rem;
-    padding: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   /* .avatar styling not needed on mobile as well */
