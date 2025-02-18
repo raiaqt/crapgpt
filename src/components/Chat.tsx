@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, FC, FormEvent, ChangeEvent, KeyboardEvent } from 'react';
+import ReactMarkdown from 'react-markdown';
 import styles from './Chat.module.css';
 import { processChat } from '../../server/openaiLogic';
 
@@ -34,8 +35,19 @@ const Chat: FC = () => {
     setInput('');
     setIsLoading(true);
 
+    // Determine the current mode based on the URL
+    let mode: "crap" | "mansplain" | "cope";
+    const pathname = window.location.pathname;
+    if (pathname.includes('mansplain')) {
+      mode = "mansplain";
+    } else if (pathname.includes('cope')) {
+      mode = "cope";
+    } else {
+      mode = "crap";
+    }
+
     try {
-      const reply = await processChat(trimmedInput);
+      const reply = await processChat(trimmedInput, mode);
       const assistantMessage: Message = { sender: 'assistant', text: reply };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
@@ -75,7 +87,13 @@ const Chat: FC = () => {
                 msg.sender === 'user' ? styles.user : styles.assistant
               }`}
             >
-              <div className={styles.chatBubble}>{msg.text}</div>
+              <div className={styles.chatBubble}>
+                {msg.sender === 'assistant' ? (
+                  <ReactMarkdown>{msg.text}</ReactMarkdown>
+                ) : (
+                  msg.text
+                )}
+              </div>
             </div>
           ))}
           {/* Loader bubble for assistant message when loading */}

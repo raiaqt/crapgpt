@@ -1,6 +1,6 @@
 .header {
   padding: 1rem 2rem; /* Default horizontal padding for desktop */
-  background-color: #fff; /* Default white background for light mode */
+  background-color: #fff; /* White background for light mode */
   position: fixed;
   top: 0;
   left: 0;
@@ -8,26 +8,46 @@
   z-index: 1000; /* Ensures the header is on top of other content */
 }
 
-.header h1 {
-  margin: 0;
-  font-size: 1.2rem; /* Smaller text */
-  color: #5d5d5d; /* Default dark text for light mode */
-  text-align: left;
+/* New styles for navigation */
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #5d5d5d; /* Standard grayscale text */
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Grayscale active styling for light mode without underline */
+.active {
+  text-decoration: none; /* Removed underline */
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle dark highlight */
+  color: #333; /* Darker text for active link */
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .header {
-    padding: 1rem; /* Reduced horizontal padding for better alignment with mobile chat view */
+    padding: 1rem; /* Reduced horizontal padding for mobile */
   }
 }
 
+/* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
   .header {
     background-color: #1d1d1d; /* Dark background for dark mode */
   }
-
-  .header h1 {
-    color: #e0e0e0; /* Light text for dark mode */
+  .navLink {
+    color: #e0e0e0; /* Light grayscale for normal text */
+  }
+  .active {
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle white highlight */
+    color: #ffffff; /* White text for the active link */
   }
 } 
