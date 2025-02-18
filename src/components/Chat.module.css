@@ -207,9 +207,8 @@
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  background-color: white;
-  /* Center the icon if necessary */
   margin: auto;
+  /* background-color: currentColor; */
 }
 
 .chatInputField::placeholder {
