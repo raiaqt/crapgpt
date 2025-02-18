@@ -1,32 +1,34 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 
 const Header: React.FC = () => {
-  const path = window.location.pathname;
+  const location = useLocation();
+  const path = location.pathname;
   const isMansplain = path.includes('mansplain');
   const isCope = path.includes('cope');
 
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <a
-          href="/"
+        <Link
+          to="/"
           className={`${styles.navLink} ${!isMansplain && !isCope ? styles.active : ''}`}
         >
           CrapGPT
-        </a>
-        <a
-          href="/mansplain"
+        </Link>
+        <Link
+          to="/mansplain"
           className={`${styles.navLink} ${isMansplain ? styles.active : ''}`}
         >
           MansplainGPT
-        </a>
-        <a
-          href="/cope"
+        </Link>
+        <Link
+          to="/cope"
           className={`${styles.navLink} ${isCope ? styles.active : ''}`}
         >
           CopeGPT
-        </a>
+        </Link>
       </nav>
     </header>
   );

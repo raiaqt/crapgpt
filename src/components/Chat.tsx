@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, FC, FormEvent, ChangeEvent, KeyboardEvent } from 'react';
+import { useLocation } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import styles from './Chat.module.css';
 import { processChat } from '../../server/openaiLogic';
@@ -13,6 +14,7 @@ const Chat: FC = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const location = useLocation();
 
   // Auto-scroll to latest message when messages update
   useEffect(() => {
@@ -35,9 +37,9 @@ const Chat: FC = () => {
     setInput('');
     setIsLoading(true);
 
-    // Determine the current mode based on the URL
+    // Determine the current mode based on the URL from React Router.
     let mode: "crap" | "mansplain" | "cope";
-    const pathname = window.location.pathname;
+    const pathname = location.pathname;
     if (pathname.includes('mansplain')) {
       mode = "mansplain";
     } else if (pathname.includes('cope')) {

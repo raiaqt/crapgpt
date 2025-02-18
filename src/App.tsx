@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Chat from './components/Chat';
 import './App.css'
@@ -16,10 +17,14 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
+    <BrowserRouter>
       <Header />
-      <Chat />
-    </div>
+      <Routes>
+        <Route path="/" element={<Chat />} />
+        <Route path="/mansplain" element={<Chat />} />
+        <Route path="/cope" element={<Chat />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
